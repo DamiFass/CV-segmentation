@@ -6,7 +6,7 @@ import io
 # from torchvision.transforms import functional as F
 # from torchvision import transforms
 # from fastai.vision.widgets import *
-import ipywidgets as widgets
+# import ipywidgets as widgets
 import streamlit as st
 
 path = '../Downloads/trained_model'
