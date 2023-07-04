@@ -1,5 +1,5 @@
-# import torch
-# import torchvision
+import torch
+import torchvision
 from PIL import Image
 import numpy as np
 import io
