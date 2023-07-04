@@ -319,8 +319,8 @@ dependencies:
       - widgetsnbextension==3.6.4
       - xxhash==3.2.0
       - yarl==1.9.2
-      -f data.pyg.org/whl/torch-1.13.1+cpu.html torch-sparse
-      -f data.pyg.org/whl/torch-1.13.1+cpu.html torch-scatter
-      -f data.pyg.org/whl/torch-1.13.1+cpu.html torchvision
-      -f data.pyg.org/whl/torch-1.13.1+cpu.html torch
+      - data.pyg.org/whl/torch-1.13.1+cpu.html torch-sparse
+      - data.pyg.org/whl/torch-1.13.1+cpu.html torch-scatter
+      - data.pyg.org/whl/torch-1.13.1+cpu.html torchvision
+      - data.pyg.org/whl/torch-1.13.1+cpu.html torch
 prefix: /Users/damianofassina/opt/anaconda3/envs/fastAI
