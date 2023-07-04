@@ -5,7 +5,7 @@ import numpy as np
 import io
 # from torchvision.transforms import functional as F
 # from torchvision import transforms
-from fastai.vision.widgets import *
+# from fastai.vision.widgets import *
 import ipywidgets as widgets
 import streamlit as st
 
