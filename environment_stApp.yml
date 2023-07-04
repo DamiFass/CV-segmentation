@@ -319,4 +319,6 @@ dependencies:
       - widgetsnbextension==3.6.4
       - xxhash==3.2.0
       - yarl==1.9.2
+      -f https://data.pyg.org/whl/torch-1.13.0+cpu.html
+      - torch-scatter
 prefix: /Users/damianofassina/opt/anaconda3/envs/fastAI
