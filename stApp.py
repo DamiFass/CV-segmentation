@@ -1,7 +1,3 @@
-import fastbook
-fastbook.setup_book()
-from fastbook import *
-
 import torch
 import torchvision
 from PIL import Image
@@ -52,7 +48,7 @@ st.write(""" ## Welcome:) Select the picture you want to segment! """)
 uploaded_file = st.file_uploader('Your picture', label_visibility='hidden')
 
 if uploaded_file:
-    img = PILImage.create(io.BytesIO(uploaded_file.getvalue()))
+    img = Image.open(io.BytesIO(uploaded_file.getvalue()))
     st.image(img, caption = '')
     st.write(""" #### Nice picture! Click on *Segment* to proceed :)""")
 
