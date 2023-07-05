@@ -43,20 +43,21 @@ def predict(my_image, device):
 
 device = torch.device('cpu')
     
-st.write(""" ## Welcome:) Select the picture you want to segment! """)
+st.write(""" ## Hey there:) Select the picture you want to find people on! """)
 
 uploaded_file = st.file_uploader('Your picture', label_visibility='hidden')
 
-st.sidebar.markdown(" #### Author: Damiano Fassina. Find me on: ")
+st.sidebar.markdown(" #### Author: Damiano Fassina. ")
+st.sidebar.markdown(" #### Find me on: ")
 st.sidebar.markdown("[![Title](https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg)](https://www.linkedin.com/in/damianofassina/)")
 st.sidebar.markdown("[![Title](https://img.icons8.com/material-outlined/48/000000/github.png)](https://github.com/DamiFass)")
                                 
 if uploaded_file:
     img = Image.open(io.BytesIO(uploaded_file.getvalue()))
     st.image(img, caption = '')
-    st.write(""" #### Nice picture! Click on *Segment* to proceed :)""")
+    st.write(""" #### Nice picture! Click on *Find people* to proceed :)""")
 
-if st.button('Segment!'):
+if st.button('Find people!'):
     
     if uploaded_file is None:
         st.write(""" Uploade a picture first :) """)
@@ -69,6 +70,6 @@ if st.button('Segment!'):
         st.image(Image.fromarray(output_mask, 'RGB'))
 
         if num_people == 1:
-            st.write(f' ### The system detected {num_people} person in the picture.')
+            st.write(f' ### {num_people} person has been found in the picture.')
         else:
-            st.write(f' ### The system detected {num_people} people in the picture.')
+            st.write(f' ### {num_people} people have been found in the picture.')
