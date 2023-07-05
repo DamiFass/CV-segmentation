@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 import io
 # from torchvision.transforms import functional as F
-# from torchvision import transforms
+from torchvision import transforms
 # from fastai.vision.widgets import *
 # import ipywidgets as widgets
 import streamlit as st
