@@ -9,7 +9,7 @@ import io
 # import ipywidgets as widgets
 import streamlit as st
 
-path = '../Downloads/trained_model'
+path = 'trained_model.pt'
 loaded_model = torch.load(path, map_location=torch.device('cpu'))
 
 
