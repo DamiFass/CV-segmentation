@@ -47,7 +47,7 @@ st.write(""" ## Welcome:) Select the picture you want to segment! """)
 
 uploaded_file = st.file_uploader('Your picture', label_visibility='hidden')
 
-st.sidebar.markdown([![Title]('https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg')]('https://www.linkedin.com/in/damianofassina/'))
+st.sidebar.markdown("[![Title]('https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg')]('https://www.linkedin.com/in/damianofassina/')")
 
 if uploaded_file:
     img = Image.open(io.BytesIO(uploaded_file.getvalue()))
