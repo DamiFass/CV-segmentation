@@ -3,13 +3,30 @@ import torchvision
 from PIL import Image
 import numpy as np
 import io
+import os 
+import requests
 # from torchvision.transforms import functional as F
 from torchvision import transforms
 # from fastai.vision.widgets import *
 # import ipywidgets as widgets
 import streamlit as st
 
-path = 'trained_model.pt'
+
+def download_model():
+    model_url = "https://drive.google.com/file/d/1wreniQXTbaYfSDE4mureC_DHGowh2Ds9/view?usp=drive_link"
+    model_path = "trained_model.pt"
+
+    if not os.path.exists(model_path):
+        print("Downloading model...")
+        response = requests.get(model_url, stream=True)
+        with open(model_path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        print("Model downloaded.")
+    return model_path
+
+# Download the model from cloud and load
+path = download_model()
 loaded_model = torch.load(path, map_location=torch.device('cpu'))
 
 
@@ -34,6 +51,7 @@ def create_output_mask(prediction):
 
 # Function to process the image to make inference on:
 def predict(my_image, device):
+    my_image = my_image.convert("RGB") 
     convert_tensor = transforms.ToTensor()
     bb = convert_tensor(my_image)
     with torch.no_grad():
