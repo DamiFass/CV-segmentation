@@ -4,31 +4,25 @@ from PIL import Image
 import numpy as np
 import io
 import os 
-import requests
+import gdown
 # from torchvision.transforms import functional as F
 from torchvision import transforms
 # from fastai.vision.widgets import *
 # import ipywidgets as widgets
 import streamlit as st
 
+model_url = 'https://drive.google.com/uc?id=1wreniQXTbaYfSDE4mureC_DHGowh2Ds9'
+model_path = "trained_model.pt"
 
-def download_model():
-    model_url = "https://drive.google.com/file/d/1wreniQXTbaYfSDE4mureC_DHGowh2Ds9/view?usp=drive_link"
-    model_path = "trained_model.pt"
+if not os.path.exists(model_path):
+    print("Downloading model...")
+    st.write(""" Downloading the model... should take around 20 seconds""")
+    # Download the file
+    gdown.download(model_url, model_path, quiet=False)
+    st.write(""" Model downloaded! You're good to go!""")
+    print("Model downloaded.")
 
-    if not os.path.exists(model_path):
-        print("Downloading model...")
-        response = requests.get(model_url, stream=True)
-        with open(model_path, "wb") as f:
-            for chunk in response.iter_content(chunk_size=8192):
-                f.write(chunk)
-        print("Model downloaded.")
-    return model_path
-
-# Download the model from cloud and load
-path = download_model()
-loaded_model = torch.load(path, map_location=torch.device('cpu'))
-
+loaded_model = torch.load(model_path, map_location=torch.device('cpu'))
 
 def create_output_mask(prediction):
     predicted_dict = prediction[0]
